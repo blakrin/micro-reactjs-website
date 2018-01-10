@@ -47,7 +47,7 @@ multipleStatements: true
 
 module.exports=connection;
  ```
- change la valeur de user et password. 
+ change les valeurs des  champs user et password. 
  
 # Run and Test 
 ### Run 
@@ -65,4 +65,27 @@ Resultat
 ```
 {"code":200,"massage":"good","object":[{"id":1,"nom":"Blaise1","telephone":"99393939","address":"Yaounde","login":"bsiani","password":"bsiani","email":"bsiani@gmail. om","role_id":1}]}
 ```
-  
+
+# FrontEnd 
+## Installation et configuration 
+### installation de Reactjs 
+```
+npm install -g create-react-app
+```
+###  installation des plugins 
+```
+npm install --save material-ui axios react-tap-event-plugin
+```
+## Deployer et tester 
+ Pour deployer : 
+ * Ce mettre dans le repertoire frontend 
+ * executer la commende 
+ ```
+ npm start
+ ```
+ * le site ecoute sur le port 3000 
+ 
+ ## Fonctionnalites disponible. 
+ * Login 
+ * enregistrement des utilisateurs 
+ 
