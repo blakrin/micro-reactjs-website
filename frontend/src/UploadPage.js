@@ -14,9 +14,10 @@ class App extends Component {
     super(props);
     this.state = {draweropen: false,currentScreen:[]};
   }
+
   componentDidMount(){
     var currentScreen=[];
-    currentScreen.push(<UploadScreen appContext={this.props.appContext} role={this.props.role}/>);
+    currentScreen.push(<UploadScreen appContext={this.props.appContext}/>);
     this.setState({currentScreen})
   }
   /**
@@ -32,13 +33,13 @@ class App extends Component {
       case "openprint":
       // console.log("need to open uploadapge")
       var currentScreen=[];
-      currentScreen.push(<UploadScreen appContext={this.props.appContext} role={this.props.role}/>);
+      currentScreen.push(<UploadScreen appContext={this.props.appContext} />);
       this.setState({currentScreen})
       break;
       case "openpast":
       // console.log("need to open pastfiles")
       var currentScreen=[];
-      currentScreen.push(<Pastfiles appContext={this.props.appContext} role={this.props.role}/>);
+      currentScreen.push(<Pastfiles appContext={this.props.appContext} />);
       this.setState({currentScreen})
       break;
       case "logout":
@@ -54,7 +55,7 @@ class App extends Component {
       <div className="App">
         <MuiThemeProvider>
           <AppBar
-            title="Printing Page"
+            title="Stock"
             onLeftIconButtonTouchTap={(event) => this.toggleDrawer(event)}
           />
         </MuiThemeProvider>
@@ -85,7 +86,7 @@ class App extends Component {
           </Drawer>
         </MuiThemeProvider>
         <div>
-          {this.state.currentScreen}
+          Liste des Stocks Ici
         </div>
       </div>
     );

@@ -20,7 +20,7 @@ router.get('/:id?',function(req,res,next){
      }
      else{
          reponse = {
-             "code":0,
+             "code":200,
              "massage":"good",
              "object": rows
          };
@@ -44,7 +44,7 @@ router.get('/:id?',function(req,res,next){
      else
      {
         reponse = {
-            "code":0,
+            "code":200,
             "massage":"good",
             "object": rows
         };
@@ -136,7 +136,7 @@ router.get('/:id?',function(req,res,next){
          }
          else{
             reponse = {
-                "code":0,
+                "code":200,
                 "massage":"good"
               
             };
@@ -162,7 +162,7 @@ router.get('/:id?',function(req,res,next){
          else
          {
           reponse = {
-                     "code":0,
+                     "code":200,
                      "massage":"good",
                      "object": count
                  };
@@ -188,7 +188,7 @@ router.get('/:id?',function(req,res,next){
          else
          {
             reponse = {
-                "code":0,
+                "code":200,
                 "massage":"good",
                 "object": rows
             };

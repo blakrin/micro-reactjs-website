@@ -12,7 +12,7 @@ var user = {
     },
     // add user 
     AddNewUser : function(user, callback){
-        var query = "INSERT INTO utilisateurs VALUES(?,?,?,?,?,?,?)";
+        var query = "INSERT INTO utilisateurs (nom,telephone,address,login,password,email,role_id) VALUES(?,?,?,?,?,?,?)";
         var table= [user.nom,user.telephone,user.address,user.login,user.password,user.email,user.role_id];
         return db.query(query,table,callback);
     },
