@@ -2,10 +2,10 @@
 -- version 4.0.10deb1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Jan 10, 2018 at 05:28 AM
--- Server version: 5.5.54-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4.21
+-- Client: localhost
+-- Généré le: Mer 10 Janvier 2018 à 05:55
+-- Version du serveur: 5.5.54-0ubuntu0.14.04.1
+-- Version de PHP: 5.5.9-1ubuntu4.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `microproject`
+-- Base de données: `microproject`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produits`
+-- Structure de la table `produits`
 --
 
 CREATE TABLE IF NOT EXISTS `produits` (
@@ -37,10 +37,18 @@ CREATE TABLE IF NOT EXISTS `produits` (
   KEY `produits_fk0` (`stock_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
+--
+-- Contenu de la table `produits`
+--
+
+INSERT INTO `produits` (`id`, `produit_name`, `produit_qte`, `produit_seuil`, `produit_designation`, `stock_id`) VALUES
+(1, 'Huile de Palme', 70, 10, '', 1),
+(2, 'Huile  Rafine', 90, 10, '', 1);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `retirer`
+-- Structure de la table `retirer`
 --
 
 CREATE TABLE IF NOT EXISTS `retirer` (
@@ -53,10 +61,19 @@ CREATE TABLE IF NOT EXISTS `retirer` (
   KEY `retirer_fk1` (`id_produit`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
+--
+-- Contenu de la table `retirer`
+--
+
+INSERT INTO `retirer` (`id`, `id_utilisateur`, `id_produit`, `date_retrai`) VALUES
+(1, 1, 1, '2018-01-05'),
+(2, 1, 1, '2018-01-05'),
+(3, 1, 1, '2018-01-05');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `role`
+-- Structure de la table `role`
 --
 
 CREATE TABLE IF NOT EXISTS `role` (
@@ -66,10 +83,17 @@ CREATE TABLE IF NOT EXISTS `role` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
+--
+-- Contenu de la table `role`
+--
+
+INSERT INTO `role` (`id`, `role_name`, `role_description`) VALUES
+(1, 'Admin', 'Admin');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `stock`
+-- Structure de la table `stock`
 --
 
 CREATE TABLE IF NOT EXISTS `stock` (
@@ -80,10 +104,18 @@ CREATE TABLE IF NOT EXISTS `stock` (
   KEY `stock_fk0` (`id_utilisateur`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
+--
+-- Contenu de la table `stock`
+--
+
+INSERT INTO `stock` (`stock_id`, `date_creation`, `id_utilisateur`) VALUES
+(1, '2018-01-06', 1),
+(2, '2018-01-05', 1);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `utilisateurs`
+-- Structure de la table `utilisateurs`
 --
 
 CREATE TABLE IF NOT EXISTS `utilisateurs` (
@@ -100,30 +132,37 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Constraints for dumped tables
+-- Contenu de la table `utilisateurs`
+--
+
+INSERT INTO `utilisateurs` (`id`, `nom`, `telephone`, `address`, `login`, `password`, `email`, `role_id`) VALUES
+(1, 'Blaise1', '99393939', 'Yaounde', 'bsiani', 'bsiani', 'bsiani@gmail. om', 1);
+
+--
+-- Contraintes pour les tables exportées
 --
 
 --
--- Constraints for table `produits`
+-- Contraintes pour la table `produits`
 --
 ALTER TABLE `produits`
   ADD CONSTRAINT `produits_fk0` FOREIGN KEY (`stock_id`) REFERENCES `stock` (`stock_id`);
 
 --
--- Constraints for table `retirer`
+-- Contraintes pour la table `retirer`
 --
 ALTER TABLE `retirer`
   ADD CONSTRAINT `retirer_fk0` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateurs` (`id`),
   ADD CONSTRAINT `retirer_fk1` FOREIGN KEY (`id_produit`) REFERENCES `produits` (`id`);
 
 --
--- Constraints for table `stock`
+-- Contraintes pour la table `stock`
 --
 ALTER TABLE `stock`
   ADD CONSTRAINT `stock_fk0` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateurs` (`id`);
 
 --
--- Constraints for table `utilisateurs`
+-- Contraintes pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
   ADD CONSTRAINT `utilisateurs_fk0` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`);
