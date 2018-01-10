@@ -47,7 +47,7 @@ multipleStatements: true
 
 module.exports=connection;
  ```
- change la valeur de user et password. 
+ change les valeurs des  champs user et password. 
  
 # Run and Test 
 ### Run 
