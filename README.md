@@ -1,5 +1,5 @@
 # micro-reactjs-website
-mini projet pour la comprehension des applications distribues js avec nodejs pour le backend et Reactjs pour le frondend l'échange des données se avec les webservices de type restfull. 
+mini projet pour la comprehension des applications distribues js avec nodejs pour le backend et Reactjs pour le frondend l'échange des données se fait avec les webservices de type restfull. 
 
 # Backend 
 Pour déployer ce backend il faut installer les packages suivants 
